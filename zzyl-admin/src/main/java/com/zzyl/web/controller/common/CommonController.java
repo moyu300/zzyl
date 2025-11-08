@@ -2,8 +2,11 @@ package com.zzyl.web.controller.common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.zzyl.oss.client.OSSAliyunFileStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,8 @@ public class CommonController
 
     @Autowired
     private ServerConfig serverConfig;
+    @Autowired
+    private OSSAliyunFileStorageService fileStorageService;
 
     private static final String FILE_DELIMETER = ",";
 
@@ -76,16 +81,23 @@ public class CommonController
     {
         try
         {
-            // 上传文件路径
-            String filePath = RuoYiConfig.getUploadPath();
-            // 上传并返回新文件名称
-            String fileName = FileUploadUtils.upload(filePath, file);
-            String url = serverConfig.getUrl() + fileName;
+        /*  这些注释掉或删除
+        // 上传文件路径
+        String filePath = zzylConfig.getUploadPath();
+        // 上传并返回新文件名称
+        String fileName = FileUploadUtils.upload(filePath, file);
+        String url = serverConfig.getUrl() + fileName;*/
+            // 获得原始文件名
+            String originalFilename = file.getOriginalFilename();
+            // 获得文件扩展名
+            String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            String fileName = UUID.randomUUID().toString() + extension;
+            String url = fileStorageService.store(fileName, file.getInputStream());
             AjaxResult ajax = AjaxResult.success();
             ajax.put("url", url);
-            ajax.put("fileName", fileName);
-            ajax.put("newFileName", FileUtils.getName(fileName));
-            ajax.put("originalFilename", file.getOriginalFilename());
+            ajax.put("fileName", url); //注意：这里的值要改为url，前端访问的地址
+            //ajax.put("newFileName", FileUtils.getName(fileName)); 这个没啥用，也可删除
+            ajax.put("originalFilename", originalFilename);
             return ajax;
         }
         catch (Exception e)
@@ -93,7 +105,6 @@ public class CommonController
             return AjaxResult.error(e.getMessage());
         }
     }
-
     /**
      * 通用上传请求（多个）
      */

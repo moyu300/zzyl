@@ -37,12 +37,12 @@
 <!--            <version>1.6.2</version>-->
 <!--        </dependency>-->
 
-<!--        &lt;!&ndash; ruoyi-springboot2 / swagger knife4j 配置 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.github.xiaoymin</groupId>-->
-<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
-<!--            <version>3.0.3</version>-->
-<!--        </dependency>-->
+        <!-- ruoyi-springboot2 / swagger knife4j 配置 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>3.0.3</version>
+        </dependency>
 
          <!-- Mysql驱动包 -->
         <dependency>
@@ -56,10 +56,22 @@
             <artifactId>zzyl-framework</artifactId>
         </dependency>
 
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>com.zzyl</groupId>
+            <artifactId>zzyl-common</artifactId>
+        </dependency>
+
         <!-- 护理平台-->
         <dependency>
             <groupId>com.zzyl</groupId>
             <artifactId>zzyl-nursing-platform</artifactId>
+        </dependency>
+
+        <!-- 文件上传-->
+        <dependency>
+            <groupId>com.zzyl</groupId>
+            <artifactId>zzyl-oss</artifactId>
         </dependency>
 
         <!-- 定时任务-->

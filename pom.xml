@@ -22,6 +22,8 @@
         <druid.version>1.2.23</druid.version>
         <bitwalker.version>1.21</bitwalker.version>
         <swagger.version>3.0.0</swagger.version>
+        <aliyun.sdk.oss>3.10.2</aliyun.sdk.oss>
+        <lombok.version>1.18.22</lombok.version>
         <kaptcha.version>2.3.3</kaptcha.version>
         <pagehelper.boot.version>1.4.7</pagehelper.boot.version>
         <fastjson.version>2.0.58</fastjson.version>
@@ -107,6 +109,20 @@
                 <version>${druid.version}</version>
             </dependency>
 
+            <!-- 阿里云OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun.sdk.oss}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
             <!-- 解析客户端操作系统、浏览器等 -->
             <dependency>
                 <groupId>eu.bitwalker</groupId>
@@ -190,6 +206,13 @@
                 <version>${zzyl.version}</version>
             </dependency>
 
+            <!-- oss文件上传-->
+            <dependency>
+                <groupId>com.zzyl</groupId>
+                <artifactId>zzyl-oss</artifactId>
+                <version>${zzyl.version}</version>
+            </dependency>
+
             <!-- 定时任务-->
             <dependency>
                 <groupId>com.zzyl</groupId>
@@ -236,6 +259,7 @@
         <module>zzyl-generator</module>
         <module>zzyl-common</module>
         <module>zzyl-nursing-platform</module>
+        <module>zzyl-oss</module>
     </modules>
     <packaging>pom</packaging>
 

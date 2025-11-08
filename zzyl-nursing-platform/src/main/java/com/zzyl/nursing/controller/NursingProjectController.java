@@ -69,7 +69,8 @@ public class NursingProjectController extends BaseController
     @ApiOperation("获取护理项目详细信息")
     public R<NursingProject> getInfo(@ApiParam("护理项目ID") @PathVariable("id") Long id)
     {
-        return R.ok(nursingProjectService.selectNursingProjectById(id));
+        NursingProject nursingProject = nursingProjectService.selectNursingProjectById(id);
+        return R.ok(nursingProject);
     }
 
     /**
