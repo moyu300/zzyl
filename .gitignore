@@ -1,7 +1,7 @@
 ######################################################################
 # Build Tools
 
-/src/main/resources/application-secret.yml
+/zzyl-admin/src/main/resources/application-secret.yaml
 
 .gradle
 /build/
