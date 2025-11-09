@@ -4,6 +4,7 @@ import com.zzyl.common.utils.DateUtils;
 import com.zzyl.nursing.domain.NursingProject;
 import com.zzyl.nursing.mapper.NursingProjectMapper;
 import com.zzyl.nursing.service.INursingProjectService;
+import com.zzyl.nursing.vo.NursingProjectVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +17,21 @@ import java.util.List;
  * @date 2025-11-04
  */
 @Service
-public class NursingProjectServiceImpl implements INursingProjectService
+public
+class NursingProjectServiceImpl implements INursingProjectService
 {
     @Autowired
     private NursingProjectMapper nursingProjectMapper;
+
+    /**
+     * 查询所有护理项目
+     *
+     * @return
+     */
+    @Override
+    public List<NursingProjectVo> selectAll() {
+        return nursingProjectMapper.selectAll();
+    }
 
     /**
      * 查询护理项目

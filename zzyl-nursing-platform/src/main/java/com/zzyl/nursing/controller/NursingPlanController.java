@@ -2,6 +2,8 @@ package com.zzyl.nursing.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.zzyl.nursing.dto.NursingPlanDto;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -75,9 +77,9 @@ public class NursingPlanController extends BaseController
     @PreAuthorize("@ss.hasPermi('serve:plan:add')")
     @Log(title = "护理计划", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody NursingPlan nursingPlan)
+    public AjaxResult add(@RequestBody NursingPlanDto dto)
     {
-        return toAjax(nursingPlanService.insertNursingPlan(nursingPlan));
+        return toAjax(nursingPlanService.insertNursingPlan(dto));
     }
 
     /**
@@ -86,9 +88,9 @@ public class NursingPlanController extends BaseController
     @PreAuthorize("@ss.hasPermi('serve:plan:edit')")
     @Log(title = "护理计划", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody NursingPlan nursingPlan)
+    public AjaxResult edit(@RequestBody NursingPlanDto dto)
     {
-        return toAjax(nursingPlanService.updateNursingPlan(nursingPlan));
+        return toAjax(nursingPlanService.updateNursingPlan(dto));
     }
 
     /**
@@ -96,9 +98,9 @@ public class NursingPlanController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('serve:plan:remove')")
     @Log(title = "护理计划", businessType = BusinessType.DELETE)
-	@DeleteMapping("/{ids}")
-    public AjaxResult remove(@PathVariable Long[] ids)
+    @DeleteMapping("/{id}")
+    public AjaxResult remove(@PathVariable Long id)
     {
-        return toAjax(nursingPlanService.deleteNursingPlanByIds(ids));
+        return toAjax(nursingPlanService.deleteNursingPlanById(id));
     }
 }

@@ -1,3 +1,4 @@
+spring.profiles.include: secret
 # 项目相关配置
 ruoyi:
   # 名称
@@ -136,3 +137,8 @@ xss:
   urlPatterns: /system/*,/monitor/*,/tool/*
 
 
+oss:
+  endpoint: ${aliyun.oss.endpoint}
+  accessKeyId: ${aliyun.oss.accessKeyId}
+  accessKeySecret: ${aliyun.oss.accessKeySecret}
+  bucketName: ${aliyun.oss.bucketName}

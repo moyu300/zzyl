@@ -1,6 +1,7 @@
 package com.zzyl.nursing.service;
 
 import com.zzyl.nursing.domain.NursingProject;
+import com.zzyl.nursing.vo.NursingProjectVo;
 
 import java.util.List;
 
@@ -12,6 +13,12 @@ import java.util.List;
  */
 public interface INursingProjectService 
 {
+    /**
+     * 查询所有护理项目
+     * @return
+     */
+    public List<NursingProjectVo> selectAll();
+
     /**
      * 查询护理项目
      * 

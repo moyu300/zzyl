@@ -1,6 +1,8 @@
 ######################################################################
 # Build Tools
 
+/src/main/resources/application-secret.yml
+
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar

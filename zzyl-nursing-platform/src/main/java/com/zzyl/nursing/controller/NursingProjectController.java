@@ -9,6 +9,7 @@ import com.zzyl.common.enums.BusinessType;
 import com.zzyl.common.utils.poi.ExcelUtil;
 import com.zzyl.nursing.domain.NursingProject;
 import com.zzyl.nursing.service.INursingProjectService;
+import com.zzyl.nursing.vo.NursingProjectVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -45,7 +46,16 @@ public class NursingProjectController extends BaseController
         List<NursingProject> list = nursingProjectService.selectNursingProjectList(nursingProject);
         return getDataTable(list);
     }
-
+    /**
+     * 查询护理项目列表
+     */
+    @GetMapping("/all")
+    @ApiOperation(value = "查询所有护理项目")
+    public AjaxResult listAll()
+    {
+        List<NursingProjectVo> list = nursingProjectService.selectAll();
+        return success(list);
+    }
     /**
      * 导出护理项目列表
      */
