@@ -69,6 +69,15 @@ public class NursingPlanServiceImpl implements INursingPlanService
     }
 
     /**
+     * 查询所有护理计划
+     *
+     * @return
+     */
+    @Override
+    public List<NursingPlanVo> selectAll() {
+        return nursingPlanMapper.selectAll();
+    }
+    /**
      * 新增护理计划
      * 
      * @param dto 护理计划

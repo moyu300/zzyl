@@ -16,9 +16,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="remark"    column="remark"    />
     </resultMap>
 
+    <resultMap type="com.zzyl.nursing.vo.NursingPlanVo" id="NursingPlanVoResult">
+        <result property="id"    column="id"    />
+        <result property="sortNo"    column="sort_no"    />
+        <result property="planName"    column="plan_name"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
     <sql id="selectNursingPlanVo">
         select id, sort_no, plan_name, status, create_time, update_time, create_by, update_by, remark from nursing_plan
     </sql>
+
+    <select id="selectAll" resultType="com.zzyl.nursing.vo.NursingPlanVo" resultMap="NursingPlanVoResult">
+        select id, plan_name from nursing_plan
+    </select>
 
     <select id="selectNursingPlanList" parameterType="NursingPlan" resultMap="NursingPlanResult">
         <include refid="selectNursingPlanVo"/>

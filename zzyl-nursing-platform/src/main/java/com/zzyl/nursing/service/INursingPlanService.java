@@ -60,4 +60,10 @@ public interface INursingPlanService
      * @return 结果
      */
     public int deleteNursingPlanById(Long id);
+
+    /**
+     * 查询所有护理计划
+     * @return
+     */
+    public List<NursingPlanVo> selectAll();
 }

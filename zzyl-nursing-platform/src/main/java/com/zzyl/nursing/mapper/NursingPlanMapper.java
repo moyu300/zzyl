@@ -2,6 +2,8 @@ package com.zzyl.nursing.mapper;
 
 import java.util.List;
 import com.zzyl.nursing.domain.NursingPlan;
+import com.zzyl.nursing.vo.NursingPlanVo;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 护理计划Mapper接口
@@ -58,4 +60,10 @@ public interface NursingPlanMapper
      * @return 结果
      */
     public int deleteNursingPlanByIds(Long[] ids);
+
+    /**
+     * 查询所有护理项目
+     * @return
+     */
+    public List<NursingPlanVo> selectAll();
 }
