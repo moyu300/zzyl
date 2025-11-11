@@ -1,16 +1,16 @@
 package com.zzyl.nursing.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.zzyl.common.annotation.Excel;
 import com.zzyl.common.core.domain.BaseEntity;
+import lombok.Data;
 
 /**
  * 护理计划和项目关联对象 nursing_project_plan
  *
  * @author ruoyi
- * @date 2025-11-09
+ * @date 2025-11-11
  */
+@Data
 public class NursingProjectPlan extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
@@ -38,80 +38,4 @@ public class NursingProjectPlan extends BaseEntity
     @Excel(name = "执行频次")
     private Long executeFrequency;
 
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
-
-    public Long getId()
-    {
-        return id;
-    }
-
-    public void setPlanId(Long planId)
-    {
-        this.planId = planId;
-    }
-
-    public Long getPlanId()
-    {
-        return planId;
-    }
-
-    public void setProjectId(Long projectId)
-    {
-        this.projectId = projectId;
-    }
-
-    public Long getProjectId()
-    {
-        return projectId;
-    }
-
-    public void setExecuteTime(String executeTime)
-    {
-        this.executeTime = executeTime;
-    }
-
-    public String getExecuteTime()
-    {
-        return executeTime;
-    }
-
-    public void setExecuteCycle(Long executeCycle)
-    {
-        this.executeCycle = executeCycle;
-    }
-
-    public Long getExecuteCycle()
-    {
-        return executeCycle;
-    }
-
-    public void setExecuteFrequency(Long executeFrequency)
-    {
-        this.executeFrequency = executeFrequency;
-    }
-
-    public Long getExecuteFrequency()
-    {
-        return executeFrequency;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-                .append("id", getId())
-                .append("planId", getPlanId())
-                .append("projectId", getProjectId())
-                .append("executeTime", getExecuteTime())
-                .append("executeCycle", getExecuteCycle())
-                .append("executeFrequency", getExecuteFrequency())
-                .append("createTime", getCreateTime())
-                .append("updateTime", getUpdateTime())
-                .append("createBy", getCreateBy())
-                .append("updateBy", getUpdateBy())
-                .append("remark", getRemark())
-                .toString();
-    }
 }

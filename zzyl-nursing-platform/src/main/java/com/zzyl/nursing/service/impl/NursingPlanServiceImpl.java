@@ -47,10 +47,10 @@ public class NursingPlanServiceImpl implements INursingPlanService
         BeanUtils.copyProperties(nursingPlan, nursingPlanVo);
         //根据护理计划ID查询护理项目的关系
         List<NursingProjectPlanVo> list = nursingProjectPlanMapper.selectByPlanId(id);
-        for (NursingProjectPlanVo projectPlanVo : list) {
-            String projectName = nursingProjectMapper.getProjectIdAndName(Long.valueOf(projectPlanVo.getProjectId()));
-            projectPlanVo.setProjectName(projectName);
-        }
+//        for (NursingProjectPlanVo projectPlanVo : list) {
+//            String projectName = nursingProjectMapper.getProjectIdAndName(Long.valueOf(projectPlanVo.getProjectId()));
+//            projectPlanVo.setProjectName(projectName);
+//        }
         nursingPlanVo.setProjectPlans(list);
 
         return nursingPlanVo;
